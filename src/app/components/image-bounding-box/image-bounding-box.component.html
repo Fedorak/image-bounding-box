@@ -1,0 +1,21 @@
+<div class="container">
+    <input type="file" (change)="onFileSelected($event)" />
+    <div *ngIf="imageUrl">
+        <div class="bounding-box-container">
+            <img [src]="imageUrl" alt="Uploaded Image" #image />
+            <div class="bounding-box" [style.left.px]="boundingBox.x" [style.top.px]="boundingBox.y"
+                [style.width.px]="boundingBox.width" [style.height.px]="boundingBox.height">
+            </div>
+        </div>
+
+        <div class="coordinates">
+            <label>X: <input type="number" [(ngModel)]="boundingBox.x" /></label>
+            <label>Y: <input type="number" [(ngModel)]="boundingBox.y" /></label>
+            <label>Width: <input type="number" [(ngModel)]="boundingBox.width" /></label>
+            <label>Height: <input type="number" [(ngModel)]="boundingBox.height" /></label>
+        </div>
+        <div class="bottom-btns" >
+            <button class="remove-btn" (click)="removeImage()">remove image</button>
+        </div>
+    </div>
+</div>
